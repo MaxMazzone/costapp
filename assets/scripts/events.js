@@ -7,6 +7,7 @@ const alcoholCost = function (costOfBottle, sizeOfBottleMl, amtUsedMl) {
   amountOwed = +amountOwed.toFixed(2)
   console.log('You owe $' + amountOwed)
   $('#message').text('You owe $' + amountOwed)
+  $('#calc').trigger('reset')
 }
 
 const onCalculateSuccess = function (event) {
