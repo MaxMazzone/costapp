@@ -1,6 +1,4 @@
 const calcSuccess = function (data) {
-  // console.log(data)
-  // console.log('Successfully Signed Up!')
   $('#message').text('you did it!')
 }
 const calcFailure = function () {
