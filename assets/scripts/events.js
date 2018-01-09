@@ -35,6 +35,7 @@ const onCalculate = function (event) {
 const addIngredientToTotal = function (event) {
   event.preventDefault()
   store.total += amountOwed
+  $('#drinkCost').text('Total drink cost: $' + store.total)
   console.log(store.total)
 }
 
