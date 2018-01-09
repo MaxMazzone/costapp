@@ -25,7 +25,7 @@ const onCalculate = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   console.log(data)
-  if (data.costOfBottle > 0 && data.sizeOfBottle > 0) {
+  if (data.costOfBottle > 0 && data.sizeOfBottle > 0 && data.sizeOfBottle > data.amtUsed) {
     alcoholCostml(data)
   } else {
     $('#message').text('incomplete form or incorrect information')
@@ -34,6 +34,7 @@ const onCalculate = function (event) {
 
 const addIngredientToTotal = function (event) {
   event.preventDefault()
+  store.total = +store.total.toFixed(2)
   store.total += amountOwed
   $('#drinkCost').text('Total drink cost: $' + store.total)
   console.log(store.total)

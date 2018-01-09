@@ -1,6 +1,11 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+
+.form-inline input {
+    min-width: 175px;
+}
+
 #message {
   text-align: center;
 }

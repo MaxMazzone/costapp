@@ -15,13 +15,16 @@
       <form class="form-inline" id="calc">
         <fieldset>
           <legend>Calculate Cost!</legend>
-          <input required type="number" min="1" name="costOfBottle" class="form-control" placeholder="Cost Of Bottle in $">
-          <input required type="number" min="1" name="sizeOfBottle" class="form-control" placeholder="Size of bottle">
+          <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input required type="number" min="1" step=".01" max="99999999" name="costOfBottle" class="form-control" placeholder="Cost Of Bottle">
+          </div>
+          <input required type="number" min="1" step=".1"  max="99999999"  name="sizeOfBottle" class="form-control" placeholder="Size of bottle">
           <select name="bottleUnit">
             <option value="ml">ML</option>
             <option value="oz">OZ</option>
           </select>
-          <input required type="number" min="1" step=".1" name="amtUsed" class="form-control" placeholder="Amount Used">
+          <input required type="number" min="1" step=".1" name="amtUsed"  max="99999999"  class="form-control" placeholder="Amount Used">
           <select name="usedUnit">
             <option value="ml">ML</option>
             <option value="oz">OZ</option>
