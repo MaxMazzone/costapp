@@ -25,10 +25,20 @@ const onCalculate = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   console.log(data)
-  if (data.costOfBottle > 0 && data.sizeOfBottle > 0 && data.sizeOfBottle > data.amtUsed) {
+  let amtUsed = data.amtUsed * 1
+  let sizeOfBottle = data.sizeOfBottle * 1
+  if (data.usedUnit === 'oz') {
+    amtUsed = amtUsed * 29.57
+  }
+  if (data.bottleUnit === 'oz') {
+    sizeOfBottle = sizeOfBottle * 29.57
+  }
+  if (amtUsed > sizeOfBottle) {
+    console.log('amount used cannot exceed size of bottle')
+  } else if (data.costOfBottle > 0 && sizeOfBottle > 0) {
     alcoholCostml(data)
   } else {
-    $('#message').text('incomplete form or incorrect information')
+    console.log('incomplete form or incorrect information')
   }
 }
 
