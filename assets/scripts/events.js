@@ -1,4 +1,5 @@
 const getFormFields = require(`../../lib/get-form-fields`)
+const store = require('./store')
 // const ui = require('./ui')
 
 const alcoholCostml = function (formData) {
@@ -13,6 +14,8 @@ const alcoholCostml = function (formData) {
   const costPerMl = formData.costOfBottle / sizeOfBottle
   let amountOwed = costPerMl * amtUsed
   amountOwed = +amountOwed.toFixed(2)
+  store.total += amountOwed
+  console.log(store.total)
   console.log('You owe $' + amountOwed)
   $('#message').text('You owe $' + amountOwed)
   $('#calc').trigger('reset')
