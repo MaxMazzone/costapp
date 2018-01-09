@@ -1,6 +1,7 @@
 const getFormFields = require(`../../lib/get-form-fields`)
 const store = require('./store')
 // const ui = require('./ui')
+let amountOwed = 0
 
 const alcoholCostml = function (formData) {
   let amtUsed = formData.amtUsed
@@ -12,10 +13,8 @@ const alcoholCostml = function (formData) {
     sizeOfBottle = sizeOfBottle * 29.57
   }
   const costPerMl = formData.costOfBottle / sizeOfBottle
-  let amountOwed = costPerMl * amtUsed
+  amountOwed = costPerMl * amtUsed
   amountOwed = +amountOwed.toFixed(2)
-  store.total += amountOwed
-  console.log(store.total)
   console.log('You owe $' + amountOwed)
   $('#message').text('You owe $' + amountOwed)
   $('#costModal').modal('toggle')
@@ -33,8 +32,15 @@ const onCalculate = function (event) {
   }
 }
 
+const addIngredientToTotal = function (event) {
+  event.preventDefault()
+  store.total += amountOwed
+  console.log(store.total)
+}
+
 const addHandlers = function () {
   $('#calc').on('submit', onCalculate)
+  $('#modalAddIngredient').on('click', addIngredientToTotal)
 }
 
 module.exports = {
