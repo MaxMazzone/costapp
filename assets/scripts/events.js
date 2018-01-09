@@ -18,6 +18,7 @@ const alcoholCostml = function (formData) {
   console.log(store.total)
   console.log('You owe $' + amountOwed)
   $('#message').text('You owe $' + amountOwed)
+  $('#costModal').modal('toggle')
   $('#calc').trigger('reset')
 }
 
