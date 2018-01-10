@@ -35,6 +35,11 @@ const onCalculate = function (event) {
   }
   if (amtUsed > sizeOfBottle) {
     console.log('amount used cannot exceed size of bottle')
+    const alertMessage = $('.alert-danger')
+    alertMessage.removeClass('hide')
+    alertMessage.fadeTo(3000, 500).slideUp(500, function () {
+      alertMessage.slideUp(500)
+    })
   } else if (data.costOfBottle > 0 && sizeOfBottle > 0) {
     alcoholCostml(data)
   } else {
@@ -46,7 +51,7 @@ const addIngredientToTotal = function (event) {
   event.preventDefault()
   store.total = +store.total.toFixed(2)
   store.total += amountOwed
-  $('#drinkCost').text('Total drink cost: $' + store.total)
+  $('#drinkCost').text(store.total)
   console.log(store.total)
 }
 
