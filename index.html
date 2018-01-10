@@ -34,11 +34,17 @@
               <input type="submit" name="submit" class="btn btn-primary" value="Calculate!">
             </fieldset>
           </form>
-          <div class="alert hide alert-danger" role="alert">
+          <div id="amountTooLargeMessage" class="alert hide alert-danger" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
             <strong>Amount used cannot exceed size of bottle</strong>
+          </div>
+          <div id="incorrectInformationMessage" class="alert hide alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Incorrect or incomplete information</strong>
           </div>
       </div>
     </div>
@@ -47,8 +53,9 @@
         <div id="drink-cost-container">
           <h3> Your Drink: </h3>
           <p >
-            Total drink cost: <span id="drinkCost">$0</span>
+            Total drink cost: $<span id="drinkCost">0</span>
           </p>
+          <button id="drink-cost-clear" type="button" class="btn btn-info btn-sm">Clear</button>
         </div>
       </div>
     </div>

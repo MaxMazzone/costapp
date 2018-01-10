@@ -35,7 +35,7 @@ const onCalculate = function (event) {
   }
   if (amtUsed > sizeOfBottle) {
     console.log('amount used cannot exceed size of bottle')
-    const alertMessage = $('.alert-danger')
+    const alertMessage = $('#amountTooLargeMessage')
     alertMessage.removeClass('hide')
     alertMessage.fadeTo(3000, 500).slideUp(500, function () {
       alertMessage.slideUp(500)
@@ -43,7 +43,12 @@ const onCalculate = function (event) {
   } else if (data.costOfBottle > 0 && sizeOfBottle > 0) {
     alcoholCostml(data)
   } else {
-    console.log('incomplete form or incorrect information')
+    console.log('Incorrect or incomplete information')
+    const alertMessage = $('#incorrectInformationMessage')
+    alertMessage.removeClass('hide')
+    alertMessage.fadeTo(3000, 500).slideUp(500, function () {
+      alertMessage.slideUp(500)
+    })
   }
 }
 
@@ -54,10 +59,15 @@ const addIngredientToTotal = function (event) {
   $('#drinkCost').text(store.total)
   console.log(store.total)
 }
+const clearDrinkCost = function () {
+  $('#drinkCost').text('0')
+  store.total = 0
+}
 
 const addHandlers = function () {
   $('#calc').on('submit', onCalculate)
   $('#modalAddIngredient').on('click', addIngredientToTotal)
+  $('#drink-cost-clear').on('click', clearDrinkCost)
 }
 
 module.exports = {
