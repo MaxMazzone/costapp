@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Cost of use app</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <div class="row">
+        <div class="col-md">
+          <form class="form-inline" id="calc">
+            <fieldset>
+              <legend>Calculate Cost!</legend>
+              <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input required type="number" min="1" step=".01" max="99999999" name="costOfBottle" class="form-control" placeholder="Cost Of Bottle">
+              </div>
+              <input required type="number" min="1" step=".1"  max="99999999"  name="sizeOfBottle" class="form-control" placeholder="Size of bottle">
+              <select name="bottleUnit">
+                <option value="ml">ML</option>
+                <option value="oz">OZ</option>
+              </select>
+              <input required type="number" min="1" step=".1" name="amtUsed"  max="99999999"  class="form-control" placeholder="Amount Used">
+              <select name="usedUnit">
+                <option value="ml">ML</option>
+                <option value="oz">OZ</option>
+              </select>
+              <input type="submit" name="submit" class="btn btn-primary" value="Calculate!">
+            </fieldset>
+          </form>
+          <div id="amountTooLargeMessage" class="alert hide alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Amount used cannot exceed size of bottle</strong>
+          </div>
+          <div id="incorrectInformationMessage" class="alert hide alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Incorrect or incomplete information</strong>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md align-self-center">
+        <div id="drink-cost-container">
+          <h3> Your Drink: </h3>
+          <p >
+            Total drink cost: $<span id="drinkCost">0</span>
+          </p>
+          <button id="drink-cost-clear" type="button" class="btn btn-info btn-sm">Clear</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+      <div class="modal fade" id="costModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered " role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ingredient Cost</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <h3 class="modal-body" id="message">
+
+            </h3>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" id="modalAddIngredient" data-dismiss="modal" class="btn btn-primary">Add ingredient to drink</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
